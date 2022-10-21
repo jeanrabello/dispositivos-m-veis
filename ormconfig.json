@@ -1,0 +1,16 @@
+{
+	"type": "postgres",
+	"host": "localhost",
+	"port": 1111,
+	"username": "postgres",
+	"password": "postgres",
+	"database": "dpsm",
+	"synchronize": false,
+	"logging": false,
+	"migrations": ["./src/database/migrations/*.ts"],
+	"entities": ["./src/entities/*.ts"],
+	"cli": {
+		"migrationsDir": "./src/database/migrations",
+		"entitiesDir": "./src/entities"
+	}
+}
