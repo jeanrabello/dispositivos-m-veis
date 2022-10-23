@@ -19,6 +19,10 @@ import { CreateSalesController } from './controllers/Sales/CreateSalesController
 import { ListSalesController } from './controllers/Sales/ListSalesController';
 import { UpdateSalesController } from './controllers/Sales/UpdateSalesController';
 import { DeleteSalesController } from './controllers/Sales/DeleteSalesController';
+import { CreateDeliveryController } from './controllers/Delivery/CreateDeliveryController';
+import { ListDeliveryController } from './controllers/Delivery/ListDeliveryController';
+import { UpdateDeliveryController } from './controllers/Delivery/UpdateDeliveryController';
+import { DeleteDeliveryController } from './controllers/Delivery/DeleteDeliveryController';
 
 const router = Router();
 
@@ -43,6 +47,11 @@ const listSalesController = new ListSalesController();
 const updateSalesController = new UpdateSalesController();
 const deleteSalesController = new DeleteSalesController();
 
+const createDeliveryController = new CreateDeliveryController();
+const listDeliveryController = new ListDeliveryController();
+const updateDeliveryController = new UpdateDeliveryController();
+const deleteDeliveryController = new DeleteDeliveryController();
+
 router.post('/login', authenticateUserController.handle);
 router.post('/users', createUserController.handle);
 router.get('/products', listProductsController.handle);
@@ -65,5 +74,10 @@ router.get('/sales', listSalesController.handle);
 router.post('/sales', createSalesController.handle);
 router.put('/sales', updateSalesController.handle);
 router.delete('/sales/:id', deleteSalesController.handle);
+
+router.get('/delivery', listDeliveryController.handle);
+router.post('/delivery', createDeliveryController.handle);
+router.put('/delivery', updateDeliveryController.handle);
+router.delete('/delivery/:id', deleteDeliveryController.handle);
 
 export { router };
