@@ -24,7 +24,7 @@ export class CreateSale1666295934872 implements MigrationInterface {
 						type: 'varchar',
 					},
 					{
-						name: 'desc',
+						name: 'description',
 						type: 'varchar',
 					},
 					{

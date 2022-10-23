@@ -1,24 +1,23 @@
-import { Request, Response } from "express";
-import { UpdateSalesService } from "../../services/Sales/UpdateSalesService";
+import { Request, Response } from 'express';
+import { UpdateSalesService } from '../../services/Sales/UpdateSalesService';
 
 class UpdateSalesController {
+	async handle(request: Request, response: Response) {
+		const { id, idProduct, idUser, total, description, obs } = request.body;
 
-  async handle(request: Request, response: Response) {
-    const { id, productId, userId, total, desc, obs } = request.body;
+		const updateSalesService = new UpdateSalesService();
 
-    const updateSalesService = new UpdateSalesService();
+		const sales = await updateSalesService.execute({
+			id: id,
+			idProduct: idProduct,
+			idUser: idUser,
+			total: total,
+			description: description,
+			obs: obs,
+		});
 
-    const sales = await updateSalesService.execute({
-      id: id,
-      productId: productId,
-      userId: userId,
-      total: total,
-      desc: desc,
-      obs: obs
-    });
-
-    return response.json(sales);
-  }
+		return response.json(sales);
+	}
 }
 
 export { UpdateSalesController };

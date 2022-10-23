@@ -13,31 +13,28 @@ import { Sales } from './Sales';
 
 @Entity('products')
 class Product {
-	@PrimaryColumn()
+	@PrimaryColumn({ type: 'uuid' })
 	readonly id!: string;
 
-	@Column()
+	@Column({ type: 'varchar' })
 	name!: string;
 
-	@Column()
+	@Column({ type: 'varchar' })
 	description!: string;
 
-	@Column()
+	@Column({ type: 'real' })
 	price!: number;
 
-	@Column()
+	@Column({ type: 'varchar' })
 	url!: string;
 
-	@Column()
+	@Column({ type: 'uuid' })
 	idCategory!: string;
 
-	// @ManyToOne(() => Sales)
-	// idSale!: Sales;
-
-	@CreateDateColumn()
+	@CreateDateColumn({ type: 'date' })
 	created_at!: Date;
 
-	@UpdateDateColumn()
+	@UpdateDateColumn({ type: 'date' })
 	updated_at!: Date;
 
 	constructor() {

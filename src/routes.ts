@@ -16,6 +16,9 @@ import { UpdateProductController } from './controllers/Product/UpdateProductCont
 import { ensureAuthenticated } from './middleware/ensureAuthenticated';
 import { AuthenticateUserController } from './controllers/authentication/AuthenticateUserController';
 import { CreateSalesController } from './controllers/Sales/CreateSalesController';
+import { ListSalesController } from './controllers/Sales/ListSalesController';
+import { UpdateSalesController } from './controllers/Sales/UpdateSalesController';
+import { DeleteSalesController } from './controllers/Sales/DeleteSalesController';
 
 const router = Router();
 
@@ -36,6 +39,9 @@ const updateProductController = new UpdateProductController();
 const deleteProductController = new DeleteProductController();
 
 const createSalesController = new CreateSalesController();
+const listSalesController = new ListSalesController();
+const updateSalesController = new UpdateSalesController();
+const deleteSalesController = new DeleteSalesController();
 
 router.post('/login', authenticateUserController.handle);
 router.post('/users', createUserController.handle);
@@ -55,6 +61,9 @@ router.post('/products', createProductController.handle);
 router.put('/products', updateProductController.handle);
 router.delete('/products/:id', deleteProductController.handle);
 
+router.get('/sales', listSalesController.handle);
 router.post('/sales', createSalesController.handle);
+router.put('/sales', updateSalesController.handle);
+router.delete('/sales/:id', deleteSalesController.handle);
 
 export { router };

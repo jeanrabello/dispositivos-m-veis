@@ -7,12 +7,19 @@ interface ISalesRequest {
 	idProduct: string;
 	idUser: string;
 	total: number;
-	desc: string;
+	description: string;
 	obs: string;
 }
 
 class UpdateSalesService {
-	async execute({ id, idProduct, idUser, total, desc, obs }: ISalesRequest) {
+	async execute({
+		id,
+		idProduct,
+		idUser,
+		total,
+		description,
+		obs,
+	}: ISalesRequest) {
 		if (!id) {
 			throw new Error('id obrigatorio');
 		}
@@ -25,31 +32,20 @@ class UpdateSalesService {
 		if (!total) {
 			throw new Error('Total obrigatorio');
 		}
-		if (!desc) {
+		if (!description) {
 			throw new Error('Descrição obrigatorio');
-		}
-		if (!obs) {
-			obs = '';
 		}
 
 		const salesRepository = getCustomRepository(SalesRepositories);
 
-		let sale = {
-			idProduct,
-			idUser,
-			total,
-			desc,
-			obs,
-		};
-
 		const result = await salesRepository
 			.createQueryBuilder()
 			.update({
-				idProduct: idProduct
-				idUser: idUser
-				total: total
-				desc: desc
-				obs: obs
+				idProduct: idProduct,
+				idUser: idUser,
+				total: total,
+				description: description,
+				obs: obs,
 			})
 			.where({ id })
 			.execute();

@@ -9,11 +9,9 @@ import {
 	OneToMany,
 	OneToOne,
 } from 'typeorm';
-import { Product } from './Product';
 import { v4 as uuid } from 'uuid';
-import { User } from './User';
 
-@Entity('products')
+@Entity('sales')
 class Sales {
 	@PrimaryColumn()
 	readonly id!: string;

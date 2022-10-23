@@ -6,7 +6,7 @@
 	"password": "postgres",
 	"database": "dpsm",
 	"synchronize": false,
-	"logging": false,
+	"logging": true,
 	"migrations": ["./src/database/migrations/*.ts"],
 	"entities": ["./src/entities/*.ts"],
 	"cli": {
