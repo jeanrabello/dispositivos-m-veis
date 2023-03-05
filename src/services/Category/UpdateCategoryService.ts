@@ -10,10 +10,10 @@ interface ICategoryRequest {
 class UpdateCategoryService {
 	async execute({ id, name, description }: ICategoryRequest) {
 		if (!id) {
-			throw new Error('id obrigatório');
+			throw new Error('ID is required');
 		}
 		if (!name) {
-			throw new Error('Nome obrigatório');
+			throw new Error('Name is required');
 		}
 
 		const categoryRepository = getCustomRepository(CategoriesRepositories);

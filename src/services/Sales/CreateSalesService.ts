@@ -30,7 +30,7 @@ class CreateSalesService {
 		}
 
 		if (!obs) {
-			throw new Error('obs is required.');
+			throw new Error('Observation is required.');
 		}
 
 		const newSale = salesRepository.create({

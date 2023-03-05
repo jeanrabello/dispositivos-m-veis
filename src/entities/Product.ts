@@ -16,6 +16,9 @@ class Product {
 	@PrimaryColumn({ type: 'uuid' })
 	readonly id!: string;
 
+	@Column({ type: 'uuid' })
+	idCategory!: string;
+
 	@Column({ type: 'varchar' })
 	name!: string;
 
@@ -27,9 +30,6 @@ class Product {
 
 	@Column({ type: 'varchar' })
 	url!: string;
-
-	@Column({ type: 'uuid' })
-	idCategory!: string;
 
 	@CreateDateColumn({ type: 'date' })
 	created_at!: Date;

@@ -20,22 +20,22 @@ class UpdateProductService {
 		url,
 	}: IProductRequest) {
 		if (!id) {
-			throw new Error('ID do produto é obrigatório');
+			throw new Error('Product ID is required');
 		}
 		if (!idCategory) {
-			throw new Error('ID da categoria do produto é obrigatório');
+			throw new Error('Product category ID is required');
 		}
 		if (!name) {
-			throw new Error('Nome obrigatório');
+			throw new Error('Name is required');
 		}
 		if (!description) {
-			throw new Error('Descrição obrigatório');
+			throw new Error('Description is required');
 		}
 		if (!price) {
-			throw new Error('Preço obrigatório');
+			throw new Error('Price is required');
 		}
 		if (!url) {
-			throw new Error('Url obrigatória');
+			throw new Error('URL is required');
 		}
 
 		const productRepository = getCustomRepository(ProductsRepositories);

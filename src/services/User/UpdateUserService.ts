@@ -13,13 +13,13 @@ interface IUserRequest {
 class UpdateUserService {
 	async execute({ id, name, email, admin = false, password }: IUserRequest) {
 		if (!id) {
-			throw new Error('id obrigatorio');
+			throw new Error('ID is required');
 		}
 		if (!name) {
-			throw new Error('Nome obrigatorio');
+			throw new Error('Name is required');
 		}
 		if (!password) {
-			throw new Error('Password Obrigatorio');
+			throw new Error('Password is required');
 		}
 
 		const passwordHash = await hash(password, 8);
